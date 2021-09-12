@@ -1,16 +1,25 @@
-Opetussovellus
+<h1>Opetussovellus </h1>
 
 
-Sovelluksen ominaisuuksia:
+<h2>Sovelluksen ominaisuuksia: </h2>
 
-Käyttäjä:
-Uuden tunnuksen luonti
-Sisään ja ulos kirjautuminen 
-Kättäjä voi olla joko opettaja tai oppilas
+<h3>Käyttäjä: </h3>
 
-Toiminnot:
+> - Käyttäjä voi luoda uuden tunnuksen.
+> - Käyttäjä voi kirjauta sisään ja ulos.
+> - Käyttäjä voi olla joko opettaja tai oppilas
 
-Opettaja voi luoda kursseja ja muokata sekä poistaa omia kurssejaan.
-Opettaja näkee ketkä opiskelijat ovat hänen kurssillaan ja mitä tehtäviä he ovat ratkaisseet.
-Opiskelija näkee listan kursseista ja voi liittyä kursseille.
-Opiskelija voi ratkaista kursseilla olevia tehtäviä ja näkee tilaston ratkaisemistaan tehtävistä.
+ <h3> Käyttäjän toiminnot: </h3>
+ 
+ <h4> Opettaja: </h4>
+
+> - Opettaja voi luoda ja poistaa kursseja.
+> - Opettaja voi muokata kurssejaan ja luoda niihin tehtäviä.
+> - Opettaja näkee ketkä opiskelijat ovat hänen kurssillaan ja mitä tehtäviä he ovat ratkaisseet.
+
+<h4> Opiskelija </h4>
+
+> - Opiskelija näkee listauksen kaikista kursseista sekä kursseista joille hän on ilmoittautunut.
+> - Opiskelija voi ilmoittautua kursseille.
+> - Opiskelija voi ratkaista kursseilla olevia tehtäviä. 
+> - Opiskelija näkee tilaston ratkaisemistaan tehtävistä.
