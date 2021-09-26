@@ -8,7 +8,7 @@ Kurssien määrä: {{ count }}
 <p>Lista kursseista:</p>
 
 <hr>
-{% for course in kurssit %}
+{% for course in courses %}
 <a href="/courses/{{course.content}}">{{course.content}}</a>
 <hr>
 {% endfor %}
