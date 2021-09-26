@@ -13,10 +13,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
-@app.route("/frontpage")
-def frontpage():
-    return render_template("index.html") 
-
 
 @app.route("/register" ,methods=["POST"])
 def register():
@@ -32,7 +28,7 @@ def register():
     except IntegrityError:
         print("Username already in use")
 
-    return redirect("/frontpage")
+    return redirect("/")
 
 
 @app.route("/login" ,methods=["POST"])
@@ -47,14 +43,14 @@ def login():
     user = result.fetchone()
     if not user:
         print("Wrong username")
-        return redirect("/frontpage")
+        return redirect("/")
     else:
         hash_value = user.password
         if check_password_hash(hash_value, password):
             print("Username and password correct")
         else:
             print("Wrong password")
-            return redirect("/frontpage")
+            return redirect("/")
     session["username"] = username
     return redirect("/courses")
 
@@ -63,7 +59,7 @@ def login():
 def logout():
     print("Loggin out")
     del session["username"]
-    return redirect("/frontpage")
+    return redirect("/")
 
 
 @app.route("/courses")
@@ -82,7 +78,10 @@ def coursepage(coursename):
     
     return render_template("courses.html")
 
+   
+@app.route("/")
+def frontpage():
+    return render_template("index.html") 
+
 if __name__ == "__main__":
     app.run(debug=True)
-
-   
