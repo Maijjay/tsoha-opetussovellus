@@ -70,13 +70,13 @@ def logout():
 def courses():
     print("asd1")
 
-    result = db.session.execute("SELECT content FROM courses")
+    result = db.session.execute("SELECT coursename FROM courses")
     kurssit = result.fetchall()
 
     return render_template("courses.html", count=len(courses), courses=courses)
 
-@app.route("/courses/<content>", methods=["GET"])
-def coursepage(content):
+@app.route("/courses/<coursename>", methods=["GET"])
+def coursepage(coursename):
     a = "qeeqwe"
     print("course")
     
