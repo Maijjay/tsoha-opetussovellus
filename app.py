@@ -69,7 +69,7 @@ def courses():
     result = db.session.execute("SELECT coursename FROM courses")
     kurssit = result.fetchall()
 
-    return render_template("courses.html", count=len(courses), courses=courses)
+    return render_template("courses.html", count=len(kurssit), courses=kurssit)
 
 @app.route("/courses/<coursename>", methods=["GET"])
 def coursepage(coursename):
@@ -83,5 +83,3 @@ def coursepage(coursename):
 def frontpage():
     return render_template("index.html") 
 
-if __name__ == "__main__":
-    app.run(debug=True)
