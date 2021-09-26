@@ -70,17 +70,17 @@ def logout():
 def courses():
     print("asd1")
 
-    result = db.session.execute("SELECT content FROM kurssit")
+    result = db.session.execute("SELECT content FROM courses")
     kurssit = result.fetchall()
 
-    return render_template("kurssit.html", count=len(kurssit), kurssit=kurssit)
+    return render_template("courses.html", count=len(courses), courses=courses)
 
 @app.route("/courses/<content>", methods=["GET"])
 def coursepage(content):
     a = "qeeqwe"
     print("course")
     
-    return render_template("kurssit.html")
+    return render_template("courses.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
