@@ -1,0 +1,17 @@
+<H1>Hei!</H1>
+
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+
+
+Kurssien määrä: {{ count }}
+
+<p>Lista kursseista:</p>
+
+<hr>
+{% for course in kurssit %}
+<a href="/courses/{{course.content}}">{{course.content}}</a>
+<hr>
+{% endfor %}
+
+
+<a href="/logout">Kirjaudu ulos</a>
