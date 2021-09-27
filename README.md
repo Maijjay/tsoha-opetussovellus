@@ -2,6 +2,7 @@
 
 <h2>Tämän hetkinen tilanne:</h2>
 
+> - Linkki Herokuun https://opetussovellus-tsoha.herokuapp.com
 > - Sovelluksella on etusivu, jossa voi kirjautua sisään ja rekisteröityä.
 > - Sisäänkirjautuminen vie kurssit sivulle, jossa on listattuna kaikki kurssit ja sieltä pääsee yksittäisten kurssien sivuille (missä ei vielä materiaalia).
 > - Uuden käyttäjän rekisteröinti toimii.
