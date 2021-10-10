@@ -113,12 +113,11 @@ def participants():
         result = db.session.execute(sql, {"userid":userid, "user_type":user_type})
         username = result.fetchone()
         
-
-        sql = "SELECT finished FROM users_exercises WHERE users_id = :userid AND courses_id = :courses_id"
-        result = db.session.execute(sql, {"userid":userid, "courses_id":courses_id})
+        finished = True
+        sql = "SELECT finished FROM users_exercises WHERE users_id = :userid AND courses_id = :courses_id AND finished = :finished"
+        result = db.session.execute(sql, {"userid":userid, "courses_id":courses_id, "finished":finished})
         done_exercises = result.fetchall()
         done_exercises = len(done_exercises)
-
 
         sql = "SELECT id FROM exercises WHERE courses_id = :courses_id"
         result = db.session.execute(sql, {"courses_id":courses_id})
