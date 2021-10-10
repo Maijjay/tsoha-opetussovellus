@@ -2,16 +2,32 @@
 
 <p>Olet kirjautunut nimellä {{ session.username }}</p>
 
+<p>Omat kurssit:</p>
+<hr>
+{% for course in joined %}
+<a href="/courses/{{course.coursename}}">{{course.coursename}}</a>
 
-Kurssien määrä: {{ count }}
+<form action="/leave_course" method="POST">
+    <input type="text" name="coursename" value="{{course.coursename}}"></p>
+    <button type="submit">Leave course</button>
+</form>
+<hr>
+{% endfor %}
 
-<p>Lista kursseista:</p>
+<p>Lista kaikista kursseista:</p>
 
 <hr>
 {% for course in courses %}
 <a href="/courses/{{course.coursename}}">{{course.coursename}}</a>
+
+<form action="/join_course" method="POST">
+    <input type="text" name="coursename" value="{{course.coursename}}"></p>
+    <button type="submit">Join course</button>
+</form>
+
 <hr>
 {% endfor %}
 
+<p>Kurssien määrä: {{ count }}</p>
 
 <a href="/logout">Kirjaudu ulos</a>

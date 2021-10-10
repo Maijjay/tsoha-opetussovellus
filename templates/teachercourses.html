@@ -1,0 +1,48 @@
+<H1>Hei!</H1>
+
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+
+<p>Omat kurssit:</p>
+<hr>
+{% for courses_id, coursename in courselist %}
+
+
+
+<a href="/courses/{{coursename}}">{{coursename}}</a>
+
+
+<form action="/new_exercise" method="POST">
+    <input type="hidden" name="coursename" value="{{coursename}}"></p>
+    <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+    <button type="submit">Lisää tehtävä</button>
+</form> 
+
+<form action="/delete_course" method="POST">
+    <input type="hidden" name="coursename" value="{{coursename}}"></p>
+    <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+    <button type="submit">Poista kurssi</button>
+</form>
+
+<form action="/edit_course" method="POST">
+    <input type="hidden" name="coursename" value="{{coursename}}"></p>
+    <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+    <button type="submit">Muokkaa kurssia</button>
+</form> 
+
+<form action="/participants" method="POST">
+    <input type="hidden" name="coursename" value="{{coursename}}"></p>
+    <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+    <button type="submit">Näytä osallistujat</button>
+</form>
+
+<hr>
+
+
+{% endfor %}
+
+
+<p>Kurssien määrä: {{ count }}</p>
+
+<a href="/newcourse">Luo uusi kurssi</a>
+
+<a href="/logout">Kirjaudu ulos</a>

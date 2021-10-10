@@ -1,0 +1,21 @@
+<form action="/create_exercise" method="POST">
+
+<p> Tehtävänanto: </p> <br>
+<textarea rows = "3" cols = "50" name = "assignment" ></textarea> 
+
+<p>Vaihtoehto 1:<br>
+<input type="text" name="choice"></p>
+<p>Vaihtoehto 2:<br>
+<input type="text" name="choice"></p>
+<p>Vaihtoehto 3:<br>
+<input type="text" name="choice"></p>
+<p>Vaihtoehto 4:<br>
+<input type="text" name="choice"></p>
+    
+<p> Oikea vastaus: </p> <br>
+<input type="text" name="answer"></p>
+<input type="hidden" name="coursename" value="{{coursename}}"></p>
+<input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+<input type="submit" value="Luo tehtävä">
+
+</form>

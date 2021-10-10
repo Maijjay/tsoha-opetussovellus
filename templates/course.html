@@ -1,0 +1,23 @@
+<H1>{{coursename}}</H1>
+
+{% for line in theorylines %}
+<p>{{ line }}</p> 
+{% endfor %}
+
+
+{% for exercises_id, assignment, choices in exercises %}
+    <p>Tehtävänanto: <p>
+    {{assignment}}</p>
+
+    Vastausvaihtoehdot: <br>
+    <form action="/answer" method="POST"> 
+        {% for line in choices %}
+        <input type="radio" name="answer" value="{{line}}"> {{line}} <br>
+        {% endfor %}
+        <input type="hidden" name="exercises_id" value="{{exercises_id}}">
+        <input type="hidden" name="coursename" value="{{coursename}}">
+        <button type="submit">Vastaa</button>
+        </form>
+{% endfor %}
+
+Tehdyt tehtävät: {{done_exercises}} / {{exercises_count}}

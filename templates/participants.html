@@ -1,0 +1,9 @@
+<H1>{{coursename}}</H1>
+
+
+{% for username, done_exercises in user_exercise_list %}
+
+Opiskelijat kurssilla:</br>
+{{username}}: {{done_exercises}} / {{all_exercises}} tehtävää. </br>
+
+{% endfor %}
