@@ -1,9 +1,17 @@
-<form action="/create_course" method="POST">
-    <p>Kurssin nimi:<br>
-    <input type="text" name="coursename"></p>
-    
-    <p>Kurssimateriaali:</p> <br>
-    <textarea rows = "5" cols = "50" name = "theory" ></textarea> 
-    <input type="submit" value="Luo kurssi">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
 
+<body>
+    <form action="/create_course" method="POST">
+        <h2>Kurssin nimi:</h2> <br>
+        <input type="text" name="coursename">
+        
+        <h2>Kurssimateriaali:</h2> <br>
+        <textarea rows = "5" cols = "50" name = "theory" ></textarea> 
+        <input type="submit" value="Luo kurssi">
     </form>
+    <a href="/teachercourses">Takaisin</a>
+</body>

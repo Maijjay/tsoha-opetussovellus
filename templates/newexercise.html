@@ -1,21 +1,28 @@
-<form action="/create_exercise" method="POST">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
 
-<p> Tehtävänanto: </p> <br>
-<textarea rows = "3" cols = "50" name = "assignment" ></textarea> 
+<body>
+    <form action="/create_exercise" method="POST">
+        <h2> Tehtävänanto: </h2> <br>
+        <textarea rows = "3" cols = "50" name = "assignment" ></textarea> 
+        <p>Vaihtoehto 1:<br>
+        <input type="text" name="choice"></p>
+        <p>Vaihtoehto 2:<br>
+        <input type="text" name="choice"></p>
+        <p>Vaihtoehto 3:<br>
+        <input type="text" name="choice"></p>
+        <p>Vaihtoehto 4:<br>
+        <input type="text" name="choice"></p>
+            
+        <h2> Oikea vastaus: </h2> <br>
+        <input type="text" name="answer"></p>
+        <input type="hidden" name="coursename" value="{{coursename}}"></p>
+        <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+        <input type="submit" value="Luo tehtävä">
+    </form>
 
-<p>Vaihtoehto 1:<br>
-<input type="text" name="choice"></p>
-<p>Vaihtoehto 2:<br>
-<input type="text" name="choice"></p>
-<p>Vaihtoehto 3:<br>
-<input type="text" name="choice"></p>
-<p>Vaihtoehto 4:<br>
-<input type="text" name="choice"></p>
-    
-<p> Oikea vastaus: </p> <br>
-<input type="text" name="answer"></p>
-<input type="hidden" name="coursename" value="{{coursename}}"></p>
-<input type="hidden" name="courses_id" value="{{courses_id}}"></p>
-<input type="submit" value="Luo tehtävä">
-
-</form>
+    <a href="/teachercourses">Takaisin</a>
+</body>

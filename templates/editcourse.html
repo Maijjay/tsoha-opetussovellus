@@ -1,22 +1,30 @@
- Kurssin nimi: {{coursename}}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
 
-Kurssin teoria:
-{% for line in theory %}
-<p>{{ line }}</p> 
-{% endfor %}
+<body>
+<h2>Kurssin nimi: {{coursename}}</h2>
+<br>
+
+<h2> Kurssin teoria: </h2>
+    <p> 
+    {% for line in theory %}
+        {{ line }} 
+    {% endfor %} 
+    </p>
 
     <form action="/edit_coursename" method="POST">
-        Kurssin nimi:<br>
+        <p> Kurssin nimi:</p>
+        <br>
         <input type="text" name="coursename">
+        <p>Kurssimateriaali:</p> 
+        <br>
+        <textarea rows = "5" cols = "50" name = "theory" ></textarea>
         <input type="hidden" name="theory" value="{{theory}}">
         <input type="hidden" name="courses_id" value="{{courses_id}}">
-        <input type="submit" value="Muokkaa kurssinimeä">
+        <input type="submit" value="Muokkaa kurssia">
     </form>
-    
-    <form action="/edit_coursename" method="POST">
-        <p>Kurssimateriaali:</p> <br>
-        <textarea rows = "5" cols = "50" name = "theory" ></textarea>
-        <input type="hidden" name="coursename" value="{{coursename}}">
-        <input type="hidden" name="courses_id" value="{{courses_id}}">
-        <input type="submit" value="Muokkaa teoriaa">
-    </form>
+    <br>
+</body>>

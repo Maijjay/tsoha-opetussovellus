@@ -1,24 +1,43 @@
-<title>Etusivu</title>
-<h1>Etusivu</h1>
-<p>Tervetuloa opetussovellukseen!</p>
 
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
 
-<form action="/login" method="POST">
-<p>Tunnus:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Kirjaudu">
-</form>
+<div class="header">
+    <h1>Opetussovellus</h1>
+</div>
 
-<form action="/register" method="POST">
-<p>Tunnus:<br>
-<input type="text" name="username" required minlength="4" maxlength="15"></p>
-<p>Salasana:<br>
-<input type="password" name="password" required minlength="4" maxlength="15"></p>
-<p>Opettaja vai oppilas:<br>
-<input type="radio" name="user_type" value="opettaja"> Opettaja
-<input type="radio" name="user_type" value="opiskelija"> Oppilas
-</p>>
-<input type="submit" value="Luo tunnus">
-</form>
+<body>
+    <p>Tervetuloa! </p>
+
+    <form action="/login" method="POST">
+        <h2>Tunnus:</h2>
+        <br>
+        <input type="text" name="username"></p>
+        <h2>Salasana:</h2>
+        <input type="password" name="password"></p>
+        <input type="submit" value="Kirjaudu">
+    </form>
+
+    <p>Jos sinulla ei ole vielä tunnusta, voit rekisteröityä alta.</p>
+
+    <form action="/register" method="POST">
+        <h2>Tunnus:</h2>
+        <br>
+        <input type="text" name="username" required minlength="4" maxlength="15"></p>
+        <h2>Salasana:</h2>
+        <br>
+        <input type="password" name="password" required minlength="4" maxlength="15"></p>
+        <h2>Salasana uudelleen:</h2>
+        <br>
+        <input type="password" name="password2" required minlength="4" maxlength="15"><p>
+        <h2>Opettaja vai oppilas:</h2>
+        <br>
+        <input type="radio" name="user_type" value="opettaja"> Opettaja
+        <input type="radio" name="user_type" value="opiskelija"> Oppilas
+        </p>
+        <input type="submit" value="Luo tunnus">
+    </form>
+</body>

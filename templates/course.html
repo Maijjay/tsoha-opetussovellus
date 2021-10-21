@@ -1,23 +1,35 @@
-<H1>{{coursename}}</H1>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
 
-{% for line in theorylines %}
-<p>{{ line }}</p> 
-{% endfor %}
+<div class="header">
+    <h1>{{coursename}}</h1>
+  </div>
 
+<body>
+    <p>{% for line in theorylines %}
+        {{ line }} 
+    {% endfor %}
+    </p>
 
-{% for exercises_id, assignment, choices in exercises %}
-    <p>Tehtävänanto: <p>
-    {{assignment}}</p>
+    {% for exercises_id, assignment, choices in exercises %}
+        <p>Tehtävänanto:
+        {{assignment}}</p>
 
-    Vastausvaihtoehdot: <br>
-    <form action="/answer" method="POST"> 
-        {% for line in choices %}
-        <input type="radio" name="answer" value="{{line}}"> {{line}} <br>
-        {% endfor %}
-        <input type="hidden" name="exercises_id" value="{{exercises_id}}">
-        <input type="hidden" name="coursename" value="{{coursename}}">
-        <button type="submit">Vastaa</button>
-        </form>
-{% endfor %}
+        Vastausvaihtoehdot: <br>
+        <form action="/answer" method="POST"> 
+            {% for line in choices %}
+                <input type="radio" name="answer" value="{{line}}"> {{line}} <br>
+            {% endfor %}
+            <input type="hidden" name="exercises_id" value="{{exercises_id}}">
+            <input type="hidden" name="coursename" value="{{coursename}}">
+            <button type="submit">Vastaa</button>
+            </form>
+    {% endfor %}
 
-Tehdyt tehtävät: {{done_exercises}} / {{exercises_count}}
+    <p>Tehdyt tehtävät: {{done_exercises}} / {{exercises_count}}</p>
+    <br>        
+    <a href="/courses">Takaisin kurssisivulle</a>
+</body>

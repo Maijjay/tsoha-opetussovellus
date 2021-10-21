@@ -1,8 +1,12 @@
-<H1>{{coursename}}</H1>
-
-Opiskelijat kurssilla:</br>
-{% for username, done_exercises in user_exercise_list %}
-
-{{username}}: {{done_exercises}} / {{all_exercises}} tehtävää. </br>
-
-{% endfor %}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+<body>
+    <h2>Opiskelijat kurssilla:</h2> <br>
+    {% for username, done_exercises in user_exercise_list %}
+        {{username}}: {{done_exercises}} / {{all_exercises}} tehtävää. </br>
+    {% endfor %}
+    <a href="/teachercourses">Takaisin</a>
+</body>>
