@@ -10,36 +10,34 @@
 
 <body>
     <h2>Omat kurssit:</h2>
-    <br>
     {% for courses_id, coursename in courselist %}
        
     <div class="coursename">
         <a href="/courses/{{coursename}}">{{coursename}}</a>
     </div>
-    
     <div class="buttons">
 
         <form action="/new_exercise" method="POST">
-            <input type="hidden" name="coursename" value="{{coursename}}"></p>
-            <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+            <input type="hidden" name="coursename" value="{{coursename}}">
+            <input type="hidden" name="courses_id" value="{{courses_id}}">
             <button type="submit">Lisää tehtävä</button>
         </form> 
 
         <form action="/delete_course" method="POST">
-            <input type="hidden" name="coursename" value="{{coursename}}"></p>
-            <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+            <input type="hidden" name="coursename" value="{{coursename}}">
+            <input type="hidden" name="courses_id" value="{{courses_id}}">
             <button type="submit">Poista kurssi</button>
         </form>
 
         <form action="/edit_course" method="POST">
-            <input type="hidden" name="coursename" value="{{coursename}}"></p>
-            <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+            <input type="hidden" name="coursename" value="{{coursename}}">
+            <input type="hidden" name="courses_id" value="{{courses_id}}">
             <button type="submit">Muokkaa kurssia</button>
         </form> 
 
         <form action="/participants" method="POST">
-            <input type="hidden" name="coursename" value="{{coursename}}"></p>
-            <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
+            <input type="hidden" name="coursename" value="{{coursename}}">
+            <input type="hidden" name="courses_id" value="{{courses_id}}">
             <button type="submit">Näytä osallistujat</button>
         </form>
     </div>   

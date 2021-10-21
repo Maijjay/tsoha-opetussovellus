@@ -5,26 +5,26 @@
 </head>
 
 <body>
-<h2>Kurssin nimi: {{coursename}}</h2>
-<br>
-
-<h2> Kurssin teoria: </h2>
+    <h2>Kurssin nimi: {{coursename}}</h2>
+    <h2> Kurssin teoria: </h2>
     <p> 
-    {% for line in theory %}
-        {{ line }} 
-    {% endfor %} 
+        {% for line in theory %}
+            {{ line }} 
+        {% endfor %} 
     </p>
 
     <form action="/edit_coursename" method="POST">
-        <p> Kurssin nimi:</p>
+        Kurssin nimi:
         <br>
         <input type="text" name="coursename">
-        <p>Kurssimateriaali:</p> 
+        <br>
+        Kurssimateriaali:
         <br>
         <textarea rows = "5" cols = "50" name = "theory" ></textarea>
         <input type="hidden" name="theory" value="{{theory}}">
         <input type="hidden" name="courses_id" value="{{courses_id}}">
-        <input type="submit" value="Muokkaa kurssia">
+        <button type="submit">Muokkaa kurssia</button>
+
     </form>
-    <br>
-</body>>
+    <a href="/teachercourses">Takaisin</a>
+</body>

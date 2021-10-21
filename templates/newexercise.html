@@ -6,8 +6,8 @@
 
 <body>
     <form action="/create_exercise" method="POST">
-        <h2> Tehtävänanto: </h2> <br>
-        <textarea rows = "3" cols = "50" name = "assignment" ></textarea> 
+        <h2> Tehtävänanto: </h2> 
+        <p><textarea rows = "3" cols = "50" name = "assignment" ></textarea> </p>
         <p>Vaihtoehto 1:<br>
         <input type="text" name="choice"></p>
         <p>Vaihtoehto 2:<br>
@@ -17,11 +17,12 @@
         <p>Vaihtoehto 4:<br>
         <input type="text" name="choice"></p>
             
-        <h2> Oikea vastaus: </h2> <br>
-        <input type="text" name="answer"></p>
-        <input type="hidden" name="coursename" value="{{coursename}}"></p>
-        <input type="hidden" name="courses_id" value="{{courses_id}}"></p>
-        <input type="submit" value="Luo tehtävä">
+        <h2> Oikea vastaus: </h2> 
+        <p><input type="text" name="answer"></p>
+        <input type="hidden" name="coursename" value="{{coursename}}">
+        <input type="hidden" name="courses_id" value="{{courses_id}}">
+        <button type="submit">Lisää kurssi</button>
+
     </form>
 
     <a href="/teachercourses">Takaisin</a>

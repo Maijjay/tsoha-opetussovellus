@@ -1,14 +1,14 @@
 
 .header {
-    margin: 10px;
     background: salmon;
     font-weight: bold;
-    padding: 2em 1em;
+    padding-bottom: 0.4em;
     font-size: 2em;
 }
 
 .coursename {
-    margin: 10px;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
     background-color: darksalmon;
     color: #302f2f;
     padding: 9px 13px;
@@ -18,24 +18,24 @@
 }
 
 h1 {
-    margin: 10px;
     font-weight: bold;
     font-size: 1.5em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
 }
 
 h2 {
-    margin:10px;
     font-weight: bold;
     font-size: 1.3em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
 }
 
 p {
-    margin: 10px;
     color: #302f2f;
     background-color:snow;
     font-size: 1.1em;
     font-family: helvetica, sans-serif;
-    padding: 0.5em; 
 }
 
 body {
@@ -48,34 +48,31 @@ body {
     padding: 0.5em; 
 }
 
+form{
+    font-size: 1.1em;
+    font-family: helvetica, sans-serif;
+}
+
 .buttons {
-    margin: 10px;
     display:flex;
-    border: none;
-    border-radius: 6px;
-    padding: 7px 11px;
-    text-align: center;
-    font-size: 16px;
 }
 
 button {
-    margin: 10px;
     margin-right: 10px;
+    margin-top: 10px;
     background-color: mistyrose;
     border: none;
     border-radius: 6px;
-    padding: 10px 15px;
+    padding: 7px 11px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
 }
 
 a {
-    margin: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    border-radius: 6px;
     color: #302f2f;
     background-color: darksalmon;
-    padding: 8px 12px;
+    padding: 7px 11px;
     text-align: center;
 }

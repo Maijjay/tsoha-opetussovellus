@@ -6,7 +6,7 @@
 <body>
     <h2>Opiskelijat kurssilla:</h2> <br>
     {% for username, done_exercises in user_exercise_list %}
-        {{username}}: {{done_exercises}} / {{all_exercises}} tehtävää. </br>
+       <p> {{username}}: {{done_exercises}} / {{all_exercises}} tehtävää. </p> </br>
     {% endfor %}
     <a href="/teachercourses">Takaisin</a>
-</body>>
+</body>

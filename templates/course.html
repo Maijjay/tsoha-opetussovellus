@@ -18,7 +18,7 @@
         <p>Tehtävänanto:
         {{assignment}}</p>
 
-        Vastausvaihtoehdot: <br>
+        <p>Vastausvaihtoehdot:
         <form action="/answer" method="POST"> 
             {% for line in choices %}
                 <input type="radio" name="answer" value="{{line}}"> {{line}} <br>
@@ -26,7 +26,7 @@
             <input type="hidden" name="exercises_id" value="{{exercises_id}}">
             <input type="hidden" name="coursename" value="{{coursename}}">
             <button type="submit">Vastaa</button>
-            </form>
+            </form> </p>
     {% endfor %}
 
     <p>Tehdyt tehtävät: {{done_exercises}} / {{exercises_count}}</p>
