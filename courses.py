@@ -44,9 +44,9 @@ def check_if_coursename_exists(coursename):
     result = db.session.execute(sql, {"coursename":coursename})
     return result.fetchone()
 
-def add_new_course(coursename, theory):
-    sql = "INSERT INTO courses (coursename, theory) VALUES (:coursename, :theory)"
-    result = db.session.execute(sql, {"coursename":coursename, "theory":theory})
+def add_new_course(coursename, theory, user_id):
+    sql = "INSERT INTO courses (coursename, theory, users_id) VALUES (:coursename, :theory, :user_id)"
+    result = db.session.execute(sql, {"coursename":coursename, "theory":theory, "user_id":user_id})
     return db.session.commit()
 
 def edit_coursename(coursename, courses_id):

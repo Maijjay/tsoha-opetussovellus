@@ -8,7 +8,8 @@ CREATE TABLE users (
 CREATE TABLE courses (
     id SERIAL PRIMARY KEY, 
     coursename TEXT,
-    theory TEXT
+    theory TEXT,
+    users_id int REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE
     );
 
 CREATE TABLE exercises (

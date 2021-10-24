@@ -50,3 +50,9 @@ def get_username(user_id, user_type):
     sql = "SELECT username FROM users WHERE id = :user_id AND user_type = :user_type"
     result = db.session.execute(sql, {"user_id":user_id, "user_type":user_type})
     return result.fetchone()
+
+def check_user(user_id, course_id):
+    
+    sql = "SELECT coursename FROM courses WHERE users_id = :user_id AND id = :course_id"
+    result = db.session.execute(sql, {"user_id":user_id, "course_id":course_id})
+    return result.fetchone()

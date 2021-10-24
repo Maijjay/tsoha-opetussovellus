@@ -221,12 +221,12 @@ def create_course():
     theory = request.form["theory"]
 
     course = courses.check_if_coursename_exists(coursename)
+    username = session["username"]
+    user_id = users.get_user_id(username)
 
     if not course:
-        sql = courses.add_new_course(coursename, theory)
-        username = session["username"]
-        user_id = users.get_user_id(username)
-
+        sql = courses.add_new_course(coursename, theory, user_id)
+        
         coursename = request.form["coursename"]
         course_id = courses.get_course_id(coursename)
 
@@ -239,10 +239,16 @@ def create_course():
 def editcourse():
     coursename = request.form["coursename"]
     courses_id = request.form["courses_id"]
-    
-    theory = courses.get_theory(coursename)
-    theory = theory[0]
-    theory = theory.split("\n")
+    username = session["username"]
+    user_id = users.get_user_id(username)
+
+    is_users_course = users.check_user(user_id, courses_id)
+    is_users_course = is_users_course[0]
+
+    if is_users_course == coursename:
+        theory = courses.get_theory(coursename)
+        theory = theory[0]
+        theory = theory.split("\n")
 
     return render_template("editcourse.html", coursename=coursename, courses_id=courses_id, theory=theory)
 
@@ -251,8 +257,11 @@ def edit_course():
     coursename = request.form["coursename"]
     courses_id = request.form["courses_id"]
     theory = request.form["theory"]
-    print(type(coursename))
-    print(type(theory))
+
+    username = session["username"]
+    user_id = users.get_user_id(username)
+
+    
     if len(coursename) != 0:
         sql = courses.edit_coursename(coursename, courses_id)
     if  len(theory) != 0:
@@ -264,25 +273,32 @@ def edit_course():
 def delete_course():
     course_id = request.form["courses_id"]
     coursename = request.form["coursename"]
+    username = session["username"]
+    user_id = users.get_user_id(username)
 
-    try:
+    is_users_course = users.check_user(user_id, course_id)
+    is_users_course = is_users_course[0]
+    print(is_users_course)
+    print(coursename)
+    if is_users_course == coursename:
+        print("PAKSA")
+        try: 
+            print("PAKSA")
+          
+            all_exercises_ids = exercises.get_all_exercises(course_id)
+            print(all_exercises_ids)
+            if (len(all_exercises_ids) > 0):
+                for i in range(0, len(all_exercises_ids)):
+                    exid = all_exercises_ids[i]
+                    exid=exid[0] 
+                    
+                    sql = exercises.delete_exercises_answer(exid)
+                    sql = exercises.delete_exercises_choices(exid)
+            sql = courses.delete_course(course_id, coursename)
+            print("Course deleted succesfully")
+        except AttributeError:
+            print("Course not deleted")
         
-        all_exercises_ids = exercises.get_all_exercises(course_id)
-
-        if (len(all_exercises_ids) > 0):
-            for i in range(0, len(all_exercises_ids)):
-                exid = all_exercises_ids[i]
-                exid=exid[0] 
-                
-                sql = exercises.delete_exercises_answer(exid)
-                sql = exercises.delete_exercises_choices(exid)
-                               
-                print("Course deleted succesfully")
-    except AttributeError:
-        print("Course not deleted")
-
-    sql = courses.delete_course(course_id, coursename)
-
     return redirect("/teachercourses")
 
 @app.route("/new_exercise", methods=["POST"])

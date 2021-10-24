@@ -9,5 +9,4 @@ from sqlalchemy.exc import IntegrityError
 app = Flask(__name__)
 
 from db import db
-
 import routes
