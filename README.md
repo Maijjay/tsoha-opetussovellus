@@ -10,6 +10,8 @@ Opiskelijan kurssit -sivulla on listattuna kaikki kurssit ja sieltä pääsee yk
 
 Opettajan kurssit -sivulla voi luoda uusia kursseja. Uudelle kursille annetaan nimi sekä materiaali. Olemassa oleville krsseille opettaja voi luoda monivalinta -tehtäviä. Kurssin nimeä ja teoriaa voi muokata ja kurssejä voidaan poistaa kokonaisuudessaan. Opettaja voi katsoa, ketkä oppilaat ovat iloittautuneet hänen kursseilleen ja monta tehtävää kukin opiskelija on tehnyt.
 
+Opettaja -käyttäjää voi testata esimerkiksi käyttätunnuksella maija ja salasanalla kala.
+
 <h2>Sovelluksen ominaisuuksia: </h2>
 
 <h>Käyttäjä: </h3>
