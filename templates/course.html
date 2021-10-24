@@ -9,10 +9,10 @@
   </div>
 
 <body>
-    <p>{% for line in theorylines %}
-        {{ line }} 
+    {% for line in theorylines %}
+        <p> {{ line }} </p>
     {% endfor %}
-    </p>
+    
 
     {% for exercises_id, assignment, choices in exercises %}
         <p>Tehtävänanto:
